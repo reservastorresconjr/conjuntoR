@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ingreso - Conjunto R</title>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+  <main class="contenedor">
+    <h2>Ingreso al sistema</h2>
+    <form id="login-form">
+      <label for="torre">Torre:</label>
+      <select id="torre" required>
+        <option value="">Seleccionar</option>
+        <option value="1">Torre 1</option>
+        <option value="2">Torre 2</option>
+        <option value="3">Torre 3</option>
+        <option value="4">Torre 4</option>
+        <option value="5">Torre 5</option>
+        <option value="6">Torre 6</option>
+        <option value="7">Torre 7</option>
+        <option value="8">Torre 8</option>
+      </select>
+
+      <label for="apartamento">Apartamento:</label>
+      <input type="text" id="apartamento" placeholder="Ej: 301" required />
+
+      <button type="submit" class="btn">Ingresar</button>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
