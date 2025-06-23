@@ -1,21 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Reservas</title>
-  <link rel="stylesheet" href="estilos.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservar Salón Social - Conjunto R</title>
+  <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
   <main class="contenedor">
     <h2>Reservar Salón Social</h2>
     <p id="info-usuario"></p>
 
-    <!-- Aquí va el formulario de reserva -->
+    <form id="formReserva">
+      <label for="fecha">Fecha:</label>
+      <input type="date" id="fecha" required>
 
-    <a href="menu.html" class="btn">Volver al Menú</a>
+      <label for="horaInicio">Hora Inicio:</label>
+      <input type="time" id="horaInicio" required>
+
+      <label for="horaFin">Hora Fin:</label>
+      <input type="time" id="horaFin" required>
+
+      <label for="correo">Correo electrónico:</label>
+      <input type="email" id="correo" required>
+
+      <button type="submit" class="btn">Reservar</button>
+      <p id="respuesta" class="respuesta"></p>
+    </form>
+
+    <a href="menu.html" class="btn" style="margin-top: 20px;">Volver al Menú</a>
   </main>
 
-  <script src="script.js"></script>
+  <script>
+    const torre = localStorage.getItem('torre');
+    const apto = localStorage.getItem('apartamento');
+    const infoUsuario = document.getElementById('info-usuario');
+
+    if (!torre || !apto) {
+      window.location.href = "index.html";
+    } else {
+      infoUsuario.textContent = `Torre ${torre} - Apartamento ${apto}`;
+    }
+
+    document.getElementById("formReserva").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const fecha = document.getElementById("fecha").value;
+      const horaInicio = document.getElementById("horaInicio").value;
+      const horaFin = document.getElementById("horaFin").value;
+      const correo = document.getElementById("correo").value.trim();
+
+      if (!fecha || !horaInicio || !horaFin || !correo) {
+        alert("Complete todos los campos.");
+        return;
+      }
+
+      const url = "https://script.google.com/macros/s/AKfycbyaWSY74EHJe0g1V17kWyEv0i09ySBfuA-nCFDjir-_1MdVDmZYJqsmWSjH1HNVwKpRDQ/exec";
+      const params = new URLSearchParams({
+        torre,
+        apto,
+        fecha,
+        horaInicio,
+        horaFin,
+        correo
+      });
+
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: params.toString()
+      })
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("respuesta").textContent = data;
+      })
+      .catch(err => {
+        document.getElementById("respuesta").textContent = "Error al enviar la reserva.";
+        console.error(err);
+      });
+    });
+  </script>
 </body>
 </html>
