@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ingreso - Conjunto R</title>
+  <title>Ingreso al Sistema Conjunto R</title>
   <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
   <main class="contenedor">
-    <h2>Ingreso al sistema</h2>
+    <h2>Ingreso al Sistema Conjunto R</h2>
     <form id="login-form">
       <label for="torre">Torre:</label>
       <select id="torre" required>
@@ -24,7 +24,29 @@
       </select>
 
       <label for="apartamento">Apartamento:</label>
-      <input type="text" id="apartamento" placeholder="Ej: 301" required />
+      <select id="apartamento" required>
+        <option value="">Seleccionar</option>
+        <option value="101">101</option>
+        <option value="102">102</option>
+        <option value="103">103</option>
+        <option value="104">104</option>
+        <option value="201">201</option>
+        <option value="202">202</option>
+        <option value="203">203</option>
+        <option value="204">204</option>
+        <option value="301">301</option>
+        <option value="302">302</option>
+        <option value="303">303</option>
+        <option value="304">304</option>
+        <option value="401">401</option>
+        <option value="402">402</option>
+        <option value="403">403</option>
+        <option value="404">404</option>
+        <option value="501">501</option>
+        <option value="502">502</option>
+        <option value="503">503</option>
+        <option value="504">504</option>
+      </select>
 
       <button type="submit" class="btn">Ingresar</button>
     </form>
