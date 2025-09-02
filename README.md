@@ -7,7 +7,7 @@ Sistema web para gestión comunitaria de reservas del salón social y visualizac
 
 ## 🌐 Acceso al sitio
 
-🔗 [https://cduarte1130.github.io/conjuntoR/](https://cduarte1130.github.io/conjuntoR/)
+🔗 [[https://cduarte1130.github.io/conjuntoR/](https://cduarte1130.github.io/conjuntoR/)](https://github.com/reservastorresconjr/conjuntoR.git)
 
 ---
 
